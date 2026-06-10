@@ -59,7 +59,7 @@ steps in order to make it available inside of your Django project:
 #. Edit your project's URL configuration file (``urls.py``), and add the
    following line to the ``urlpatterns`` setting::
 
-     url(r'^identicon/', include(django_pydenticon.urls.get_patterns())),
+     path('identicon/', include(django_pydenticon.urls.get_patterns())),
 
 .. note::
    It is not mandatory to use ``identicon/`` as prefix. You can use any prefix

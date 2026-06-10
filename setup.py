@@ -2,7 +2,7 @@ import os
 from setuptools import setup, find_packages
 
 README = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
-INSTALL_REQUIREMENTS = ["pydenticon>=0.3", "django>=1.8.0"]
+INSTALL_REQUIREMENTS = ["pydenticon>=0.3", "django>=3.2"]
 TEST_REQUIREMENTS = []
 
 # allow setup.py to be run from any path
@@ -21,15 +21,20 @@ setup(
     author_email='branko@majic.rs',
     install_requires=INSTALL_REQUIREMENTS,
     tests_require=TEST_REQUIREMENTS,
+    python_requires='>=3.8',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Framework :: Django',
+        'Framework :: Django :: 3.2',
+        'Framework :: Django :: 4.0',
+        'Framework :: Django :: 4.1',
+        'Framework :: Django :: 4.2',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: Multimedia :: Graphics',
