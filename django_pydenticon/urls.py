@@ -1,29 +1,31 @@
 # Django imports.
-from django.conf.urls import url
+from django.urls import re_path
 
 # Application imports.
 from .views import image
 
+app_name = "django_pydenticon"
+
 urlpatterns = [
     # View for rendering an identicon image.
-    url(r'^image/(?P<data>.+)$', image, name="image")
+    re_path(r'^image/(?P<data>.+)$', image, name="image")
     ]
 
-def get_patterns(instance="django_pydenticon"):
+def get_patterns():
     """
     Generates URL patterns for Django Pydenticon application. The return value
-    of this function can be used directly by the django.conf.urls.include
-    function.
+    of this function can be used directly by the django.urls.include function.
 
-    Arguments:
+    The application namespace is set to "django_pydenticon", which is also used
+    as the default instance namespace. An alternative instance namespace can be
+    specified by passing the namespace argument to django.urls.include, for
+    example:
 
-      instance - Instance namespace that should be assigned to generated URL
-      patterns.
+      re_path(r'^identicon/', include(get_patterns(), namespace="myidenticon"))
 
     Returns:
 
-      Tuple consisting out of URL patterns, instance namespace, and application
-      namespace.
+      Tuple consisting out of URL patterns and application namespace.
     """
 
-    return urlpatterns, instance, "django_pydenticon"
+    return urlpatterns, "django_pydenticon"

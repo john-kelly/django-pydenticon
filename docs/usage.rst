@@ -37,8 +37,9 @@ When resolving Django Pydenticon URLs, you should always use the URL names in
 conjunction with application instance namespace.
 
 Default application instance namespace is ``django_pydenticon``. Alternative
-instance namespace can be specified by passing an (optional) argument to
-``django_pydenticons.urls.get_patterns`` function.
+instance namespace can be specified by passing the (optional) ``namespace``
+argument to ``django.urls.include`` when including the URL patterns returned
+by ``django_pydenticon.urls.get_patterns``.
 
 For example, if default namespace is in use, the ``image`` URL would be
 referenced as ``django_pydenticon:image`` in template tag ``url`` or function
@@ -54,8 +55,8 @@ be achieved via ``url`` tag.
 The URL for serving the identicons is named ``image``. It should always be
 referenced in conjunction with an application instance namespace. The
 application namespace defaults to ``django_pydenticon``, unless custom instance
-namespace is passed when including the application URLs via
-``django_pydenticon.urls.get_patterns``. In case of default namespace, that
+namespace is passed to ``django.urls.include`` when including the application
+URLs. In case of default namespace, that
 means the URL would be referenced to as ``django_pydenticon:image``.
 
 For example, let's say that it's necessary to show an identicon based on
@@ -74,13 +75,13 @@ Generating identicon URLs programatically
 The URLs can be generated programtically, using Python code. Afterwards those
 URLs can be either passed into template's rendering context, or used inside of
 code for whatever other purposes. This is achieved by using the ``reverse`` URL
-resolver (from ``django.core.urlresolvers``).
+resolver (from ``django.urls``).
 
 The URL for serving the identicons is named ``image``. It should always be
 referenced in conjunction with an application instance namespace. The
 application namespace defaults to ``django_pydenticon``, unless custom instance
-namespace is passed when including the application URLs via
-``django_pydenticon.urls.get_patterns``. In case of default namespace, that
+namespace is passed to ``django.urls.include`` when including the application
+URLs. In case of default namespace, that
 means the URL would be referenced to as ``django_pydenticon:image``.
 
 For example, let's say that it's necessary to show an identicon based on
